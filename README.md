@@ -2,7 +2,7 @@
 
 
 
-this is webpack 4 boilerplate for transpailing js code with webpack cli setting 
+this is webpack 4 boilerplate for transpiling js code with webpack cli setting 
 
 
 however clone repo n say: NPM i
