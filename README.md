@@ -5,7 +5,7 @@
 this is webpack 4 boilerplate for transpiling js code with webpack cli setting 
 
 
-however clone repo n say: NPM i
+however clone repo n say: npm i
 
 after that u can type : npx run dev 
 or npx webpack-dev-server
