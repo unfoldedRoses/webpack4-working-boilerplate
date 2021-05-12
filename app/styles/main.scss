@@ -1,12 +1,230 @@
-/* Define standard variables and values for website */
-$bgcolor: lightblue;
-$textcolor: red;
-$fontsize: 18px;
-$boldme:bolder;
-/* Use the variables */
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto+Mono');
+
+$blue: #52B3D9; //rgba(82, 179, 217, 100) SHAKESPEARE Blue
+$darkgreen: #1E824C; //rgba(77, 145, 110, 100)
+$lightgreen: #00B16A; //rgba(38, 166, 91, 100) eucalptus green
+$pink: #D2527F; //rgba(210, 82, 127, 100)
+$red: #b21c0e; 
+$purple: #663399; //rgba(102, 51, 153, 100)
+$yellow: #F7CA18; //rgba(247, 202, 24, 100) RIPE LEMON yellow
+
+* {
+  // border: 2px solid red;
+}
 body {
-  background-color: $bgcolor;
-  color: $textcolor;
-  font-size: $fontsize;
-  font-weight:$boldme ;
+  background: $blue;
+  color: white;
+  overflow: hidden;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.dark {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background: hsla(82, 179, 217, 0.9);
+  z-index: 5000;
+}
+
+h1 {
+  position: relative;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px hsla(100, 0, 30, 0.5);
+  z-index: 1000;
+  margin: 0;
+}
+p {
+  position: relative;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px hsla(100, 0, 30, 0.5);
+  z-index: 1000;
+  margin: 0;
+}
+h1 {
+  margin-top: 4.5rem;
+  font-size: 8vw;
+}
+p {
+  font-size: 3vw;
+}
+.sun {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  width: 5rem;
+  height: 5rem;
+  background: #F5AB35; // Lighting Yellow
+  border-radius: 100%;
+  box-shadow: 0 0 30px #F39C12;
+}
+
+.flowers {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.flower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &_head {   
+    height:7rem;
+    width: 7rem;
+    background: $purple;
+    border-radius: 100%;  
+  }
+  
+  &_stem {
+    width: 0.5rem;
+    //flex: 0 0 4rem;
+    height: 20rem;
+    max-height: 0;
+    background: $lightgreen;
+    
+    &::after {
+      content: '';
+      margin-left: 0.5rem;
+      margin-top: 1rem;
+      width: 3em;
+      height: 3em;
+      display: block;
+      background: $darkgreen;
+      border-radius: 2em 0 2em 0em;
+    }
+  }
+}
+.red {
+  width: 6rem;
+  height: 6rem;
+  background: $red;
+}
+.yellow {
+  width: 7.5rem;
+  height: 7.5rem;
+  background: $yellow;
+}
+
+.pink {
+  width: 6rem;
+  height: 6rem;
+  background: $pink;
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1s 2s ease-in forwards;
+}
+
+.slideIn {
+  transform: translateX(-5rem);
+  animation: slideIn 3s ease-out forwards;
+}
+
+.fadeOut {
+  opacity: 1;
+  animation: fadeOut 4s .25s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 3s;
+}
+
+.grow-12 {
+  animation: grow-12 2s 0.5s ease-in-out forwards;
+}
+
+.grow-15 {
+  animation: grow-15 2s 1.5s ease-in-out forwards;
+}
+
+.grow-9 {
+  animation: grow-9 2s 2.5s ease-in-out forwards;
+}
+
+.pulse {
+  animation: pulse 1s 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+  100% { transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+  100% { opacity: 0; }
+}
+
+@keyframes grow-12 {
+  100% { max-height: 14rem; }
+}
+
+@keyframes grow-15 {
+  100% { max-height: 17rem; }
+}
+
+@keyframes grow-9 {
+  100% { max-height: 11rem; }
+}
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+    @keyframes grow-12 {
+      100% { max-height: 207rem; }
+    }
+
+    @keyframes grow-15 {
+      100% { max-height: 319rem; }
+    }
+
+    @keyframes grow-9 {
+      100% { max-height: 243rem; }
+    }
+}
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    @keyframes grow-12 {
+      100% { max-height: 107rem; }
+    }
+
+    @keyframes grow-15 {
+      100% { max-height: 209rem; }
+    }
+
+    @keyframes grow-9 {
+      100% { max-height: 203rem; }
+    }
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.1); }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.777rem;
+  }
+  h2 {
+    font-size : 1.777rem;
+  }
 }
